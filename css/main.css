@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+    font-family: 'Barlow', sans-serif;
+    background-color: #252836;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1086px;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+.header-text h1{
+    font-size: 28px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.header-text p{
+    font-size: 16px;
+    color: #E0E6E9;
+    font-weight: 400;
+    margin-top: 4px;
+}
+.main-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-loupe-1{
+    right: 200px;
+    color: white;
+    
+    z-index: 99;
+}
+.search-food{
+    padding: 14px;
+    border-radius: 8px;
+    background-color:  #2D303E;
+    border: 1px solid #393C49;
+}
+.for-food{
+ border: none;
+background-color: transparent;
+outline: none;
+}
+
+.main-nav a{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    margin-right: 30px;
+    margin-bottom: 14px;
+    position: relative;
+    
+}
+
+.main-nav{
+    margin-top: 24px;
+    border-bottom: 1px solid #393C49;
+    padding-bottom: 14px;
+}
+
+.main-nav  a.active{
+    color:  #EA7C69;
+}
+
+.active::before{
+    content: '';
+    display: inline-block;
+    width: 37px;
+    height: 3px;
+    background-color:  #EA7C69;
+    border-radius: 15px;
+    position: absolute;
+    top: 30px;
+}
+.first-food{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.first-food h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+.select{
+    background-color: #1F1D2B;
+    appearance: none;
+  
+    padding: 15px 85px 15px 30px;
+    border: 1px solid #393C49;
+    border-radius: 8px;
+    margin-top: 24px;
+}
+.dine{
+   background-color: transparent;
+   border: none;
+   font-size: 14px;
+   color: white;
+   font-weight: 500;
+   appearance: none;
+   outline: none;
+}
+
+.icon-Shape-2{
+    color: white;
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.card .photo{
+    border-radius: 50%;
+    width: 132px;
+    height: 132px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    
+}
+.card{
+    position: relative;
+    background: #1F1D2B;
+    width: 200px;
+    border-radius: 16px;
+    margin-bottom: 70px;
+    padding: 15px ;
+    text-align: center;
+}
+
+.food-name{
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    margin-top: 100px;
+}
+
+.price{
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+}
+
+.remnant{
+    color: #ABBBC2;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
