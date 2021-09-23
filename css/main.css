@@ -10,6 +10,7 @@ body {
     background-color: #252836;
 }
 
+
 .container {
     margin: 0 auto;
     max-width: 1086px;
@@ -222,7 +223,6 @@ body {
 }
 
 .asideOne {
-    border-right: 1px solid #393C49;
     padding: 24px;
 }
 
@@ -237,17 +237,21 @@ body {
     padding-bottom: 54px;
 }
 
-.forconfirm {
-    margin-top: 0;
+/* .forconfirm {
+    margin-top: -10px;
     margin-bottom: 0;
-}
+} */
 
 .foodcard {
     display: flex;
     align-items: center;
-
+    justify-content: space-between;
+    margin: 10px;
 }
-
+.foodcard p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .photo {
     border-radius: 50%;
     width: 45px;
@@ -273,6 +277,7 @@ body {
 
 .asideTwo {
     padding: 24px;
+    border-left: 1px solid #393C49;
 }
 
 .payment {
@@ -365,4 +370,33 @@ body {
     border: 1px solid #393C49;
     border-radius: 8px;
     margin-right: 5px;
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+   margin-top: 89px;
+}
+.cancel{
+    font-weight: 600;
+font-size: 14px;
+color: #EA7C69;
+width: 100%;
+padding: 14px 12px;
+background-color: transparent;
+border: 1px solid #EA7C69;
+border-radius: 8px;
+margin-right: 13px;
+}
+
+.conpay{
+    width: 100%;
+    font-weight: 600;
+font-size: 14px;
+color: #FAFAFA;
+background: #EA7C69;
+border: none;
+box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.4);
+border-radius: 8px;
+padding: 14px 25px;
 }

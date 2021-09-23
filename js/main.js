@@ -2,11 +2,10 @@ const rowel = document.getElementById('table')
 const ballEl = document.getElementsByClassName('cartball')[0]
 const asideEl = document.getElementsByClassName('sidebar')[0]
 const arrowEl = document.getElementsByClassName('icon-left')[0]
-
+const bigDiv = document.getElementById('bigDiv')
 
 ballEl.addEventListener('click', function () {
   asideEl.style.display = 'flex'
-  rowel.style.backgroundColor = '#2D303E'
 })
 arrowEl.addEventListener('click', function () {
   asideEl.style.display = 'none'
@@ -71,7 +70,7 @@ function Dish(name, price, photo, dishTypes, addcart) {
   this.addcart = addcart
 }
 
-function createDishDiv(el) {
+function createDishDiv(el, index) {
   let dish = document.createElement('div');
   dish.className = 'card';
 
@@ -90,7 +89,7 @@ function createDishDiv(el) {
   image.src = el.photo;
 
   let button = document.createElement('button')
-  button.classList = 'but';
+  button.className = 'but ' + index;
   button.innerText = el.addcart
 
   dish.appendChild(image);
@@ -99,9 +98,42 @@ function createDishDiv(el) {
   dish.appendChild(button)
 
   rowel.appendChild(dish);
+
+
+
 }
 
-function createcart (el) {
+
+let bascet = []
+rowel.addEventListener('click', function (event) {
+
+  if (event.target.className.includes('but')) {
+    let narsa = event.target.className.split(' ').pop();
+
+    if (!bascet.includes(narsa)) {
+      bascet.push(narsa)
+    }
+    localStorage.setItem('key', JSON.stringify(bascet))
+    filDiv()
+  }
+
+})
+
+
+
+function filDiv() {
+  let olinganmassiv = JSON.parse(localStorage.getItem('key'));
+  bigDiv.innerHTML = ' ';
+  for (let i = 0; i < olinganmassiv.length; i++) {
+
+    let Dishindex = olinganmassiv[i]
+    createcart(dishes[Dishindex], Dishindex)
+  }
+}
+
+
+
+function createcart(el, index) {
   let divel = document.createElement('div')
   divel.className = 'foodcard';
 
@@ -122,15 +154,32 @@ function createcart (el) {
 
 
   let butDelate = document.createElement('button')
-  butDelate.className = 'delate'
-  butDelate.innerHTML = '<i class="icon-delate"></i>'
+  butDelate.className = 'delate remove'
+  butDelate.innerHTML = '<i class="icon-delate remove"></i>'
+  butDelate.setAttribute('data-index', index)
 
   divel.appendChild(image)
   divel.appendChild(foodName)
   foodName.appendChild(name)
   foodName.appendChild(price)
-  divel.appendChild(delate)
+  divel.appendChild(butDelate)
+  bigDiv.appendChild(divel)
+
 }
+
+bigDiv.addEventListener('click', function (event) {
+  if (event.target.className.includes('remove')) {
+    let oshaIndex = event.target.getAttribute('data-index')
+    // qilish iconka bosilhanda ham kerak
+    // console.log(oshaIndex)
+    let korzinkamassiv = JSON.parse(localStorage.getItem('key'));
+    const index = korzinkamassiv.indexOf(oshaIndex);
+    korzinkamassiv.splice(index, 1);
+    
+    filDiv()
+  }
+})
+
 
 
 // for(let i = 0; i < dishes.length; i++) {
@@ -141,7 +190,7 @@ function createcart (el) {
 function funksiya(arr) {
   rowel.innerHTML = '';
   for (let i = 0; i < arr.length; i++) {
-    createDishDiv(arr[i])
+    createDishDiv(arr[i], i)
   }
 }
 const nav = document.getElementsByClassName('main-nav')[0]
